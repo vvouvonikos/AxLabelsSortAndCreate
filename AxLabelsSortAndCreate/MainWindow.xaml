@@ -1,0 +1,61 @@
+﻿<Window
+    x:Class="AxLabelsSortAndCreate.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AxLabelsSortAndCreate"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Sort and create missing files"
+    Width="800"
+    Height="350"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="Label" TargetType="TextBlock">
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Margin" Value="5,10,0,0" />
+        </Style>
+        <Style x:Key="FilenameBrowser" TargetType="TextBlock">
+            <Setter Property="Width" Value="500" />
+            <Setter Property="Margin" Value="5,10,0,0" />
+        </Style>
+        <Style x:Key="Browse" TargetType="Button">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Content" Value="Browse..." />
+            <Setter Property="Margin" Value="5,5,0,0" />
+        </Style>
+        <Style x:Key="Submit" TargetType="Button">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Content" Value="Create new label file" />
+            <Setter Property="Margin" Value="5,5,0,0" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource Label}" Text="Parent file:" />
+            <TextBlock x:Name="ParentFilename" Style="{StaticResource FilenameBrowser}" Text="Please click [Browse] to select parent label file" />
+            <Button x:Name="SelectParentFileButton" Click="SelectParentFileButton_Click" Style="{StaticResource Browse}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource Label}" Text="Child file:" />
+            <TextBlock x:Name="ChildFilename" Style="{StaticResource FilenameBrowser}" Text="Please click [Browse] to select child label file" />
+            <Button x:Name="SelectChildFileButton" Click="SelectChildFileButton_Click" Style="{StaticResource Browse}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource Label}" Text="Target file:" />
+            <TextBlock x:Name="TargetFilename" Style="{StaticResource FilenameBrowser}" Text="Please click [Browse] to select the target file" />
+            <Button x:Name="SelectTargetFileButton" Click="SelectTargetFileButton_Click" Style="{StaticResource Browse}" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="SortAndCreateNewLabelsButton" Click="SortAndCreateNewLabelsButton_Click" Style="{StaticResource Submit}" />
+        </StackPanel>
+    </Grid>
+</Window>
